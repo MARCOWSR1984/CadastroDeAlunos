@@ -1,7 +1,11 @@
 package com.marcos.cadastroaluno;
 
+import java.util.ArrayList;
+
 public class Aluno {
-  String nome, cpf;
+  float total = 0;
+  String nome, cpf, situacao = "Reprovado";
+  ArrayList<Float> notasAluno = new ArrayList<>();
 
   public Aluno(){
 
@@ -12,6 +16,9 @@ public class Aluno {
     setCpf(cpf);
   }
 
+  void insereNotas(float nota) {
+    notasAluno.add(nota);
+  }
   public String getNome() {
     return nome;
   }
@@ -31,5 +38,35 @@ public class Aluno {
   void listar() {
     System.out.println("\nNome: " + this.nome);
     System.out.println("\nCPF: " + this.cpf);
+
+    for (int i = 0; i < notasAluno.size() ; i++) {
+      System.out.println("Nota " + ( i + 1 ) + ": " + this.notasAluno.get(i));
+
+    }
+  }
+
+  void mostraSituacao() {
+    System.out.println("\nNome: " + this.nome);
+    System.out.println("\nCPF: " + this.cpf);
+    System.out.println("\nSituação: " + this.situacao);
+  }
+
+  void calcularNotas(){
+    for(float notaDaLista:notasAluno){
+      total += notaDaLista;
+    }
+
+    if(total>=70){
+      this.situacao = "Aprovado";
+    }else {
+      this.situacao = "Reprovado";
+    }
+  }
+  public ArrayList<Float> getNotasAluno() {
+    return notasAluno;
+  }
+
+  public void setNotasAluno(ArrayList<Float> notasAluno) {
+    this.notasAluno = notasAluno;
   }
 }

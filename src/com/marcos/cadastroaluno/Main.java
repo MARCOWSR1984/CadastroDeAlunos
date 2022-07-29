@@ -44,13 +44,17 @@ public class Main {
           for (int i = 0; i <qtdNotas; i++) {
             System.out.println("\nNota " + (i + 1));
             nota = teclado.nextFloat();
+            novoAluno.insereNotas(nota);
           }
+
+          novaSala.inserirAluno(novoAluno);
 
           break;
         case 2:
           novaSala.listarAlunos();
           break;
         case 3:
+          novaSala.listarSituacoes();
           break;
         case 0:
           System.out.println("Saindo...");

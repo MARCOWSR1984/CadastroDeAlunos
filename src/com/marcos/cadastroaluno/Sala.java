@@ -10,6 +10,7 @@ public class Sala {
   }
 
   void inserirAluno(Aluno novoAluno){
+    novoAluno.calcularNotas();
     listaDeAlunos.add(novoAluno);
   }
 
@@ -18,6 +19,14 @@ public class Sala {
 
     for (Aluno alunoNaLista:listaDeAlunos) {
       alunoNaLista.listar();
+
+    }
+  }
+  void listarSituacoes() {
+    System.out.println("\nSituações");
+
+    for (Aluno alunoNaLista:listaDeAlunos) {
+      alunoNaLista.mostraSituacao();
 
     }
   }
